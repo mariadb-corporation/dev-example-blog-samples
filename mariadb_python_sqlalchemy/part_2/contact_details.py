@@ -10,7 +10,7 @@ class ContactDetails(Base):
     phone_number = Column(String(length=12))
     address = Column(String(length=100))
     employee_id = Column(Integer, ForeignKey('employees.id'))
-    employee = relationship("Employee", backref=backref("contact_details", uselist=False))
+    employee = relationship("Employee", back_populates="contact_details")
 
     def __init__(self, phone_number, address, employee):
         self.phone_number = phone_number

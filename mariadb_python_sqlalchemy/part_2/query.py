@@ -2,8 +2,17 @@ from base import Session
 from project import Project
 from employee import Employee
 from department import Department
+from contact_details import ContactDetails
 
 session = Session()
+
+# Get all employees
+
+employees = session.query(Employee).all()
+
+print('### Employees ###')
+for employee in employees:
+    print(f'  - {employee.firstname} {employee.lastname}, phone: {employee.contact_details.phone_number}')
 
 # Get all projects
 projects = session.query(Project).all()

@@ -34,11 +34,11 @@ project_2.employees = [emp_jack,emp_ben,emp_sun]
 project_3.employees = [emp_john,emp_kate,emp_jack,emp_ben,emp_sun]
 
 # Create contact details
-cd_john = ContactDetails("417 315 2531", "123 S Main ST", emp_john)
-cd_kate = ContactDetails("417 315 2533", "124 S Main ST", emp_kate)
-cd_jack = ContactDetails("417 315 2534", "125 S Main ST", emp_jack)
-cd_ben = ContactDetails("417 315 2535", "126 S Main ST", emp_ben)
-cd_sun = ContactDetails("417 315 2536", "127 S Main ST", emp_sun)
+cd_john = ContactDetails("417-315-2531", "123 S Main ST", emp_john)
+cd_kate = ContactDetails("816-315-2533", "124 S Main ST", emp_kate)
+cd_jack = ContactDetails("773-315-2534", "125 S Main ST", emp_jack)
+cd_ben = ContactDetails("518-315-2535", "126 S Main ST", emp_ben)
+cd_sun = ContactDetails("913-315-2536", "127 S Main ST", emp_sun)
 
 
 # Persist data

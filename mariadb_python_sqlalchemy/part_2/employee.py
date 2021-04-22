@@ -12,9 +12,8 @@ class Employee(Base):
     lastname = Column(String(length=100))
     active = Column(Boolean, default=True)
     department = relationship("Department", back_populates="employees")
+    contact_details = relationship("ContactDetails", uselist=False, back_populates="employee")
     
-    #contact_details = relationship("ContactDetails", backref=backref("contact_details", uselist=False))
-
     def __init__(self, firstname, lastname, department):
         self.firstname = firstname
         self.lastname = lastname
