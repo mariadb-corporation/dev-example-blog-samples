@@ -1,5 +1,5 @@
 const express = require('express')
-const pool = require('./db')
+const db = require('./db')
 const app = express()
 const port = 8080
 const bodyParser = require("body-parser");
@@ -11,10 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/tasks', async (req, res) => {
     let conn;
     try {
-        conn = await pool.getConnection();
-        var query = "select * from tasks";
-        var rows = await conn.query(query);
-        res.send(rows);
+        const result = await db.pool.query("select * from tasks");
+        res.send(result);
     } catch (err) {
         throw err;
     } finally {
@@ -28,9 +26,7 @@ app.post('/tasks', async (req, res) => {
     console.log(task);
     let conn;
     try {
-        conn = await pool.getConnection();
-        var query = "insert into tasks (description) values (?)";
-        var result = await conn.query(query, [task.description]);
+        const result = await db.pool.query("insert into tasks (description) values (?)", [task.description]);
         res.send(result);
     } catch (err) {
         throw err;
@@ -43,9 +39,7 @@ app.put('/tasks', async (req, res) => {
     let task = req.body;
     let conn;
     try {
-        conn = await pool.getConnection();
-        var query = "update tasks set description = ?, completed = ? where id = ?";
-        var result = await conn.query(query, [task.description, task.completed, task.id]);
+        const result = await db.pool.query("update tasks set description = ?, completed = ? where id = ?", [task.description, task.completed, task.id]);
         res.send(result);
     } catch (err) {
         throw err;
@@ -58,9 +52,7 @@ app.delete('/tasks', async (req, res) => {
     let id = req.query.id;
     let conn;
     try {
-        conn = await pool.getConnection();
-        var query = "delete from tasks where id = ?";
-        var result = await conn.query(query, [id]);
+        const result = await db.pool.query("delete from tasks where id = ?", [id]);
         res.send(result);
     } catch (err) {
         throw err;

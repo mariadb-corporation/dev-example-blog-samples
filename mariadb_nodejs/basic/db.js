@@ -1,7 +1,7 @@
 // Use the MariaDB Node.js Connector
-var mariadb = require('mariadb');
+var mariadb = require("mariadb");
 
-// Create a connection pool
+// Create a new (connection) Pool
 var pool = 
   mariadb.createPool({
     host: "127.0.0.1", 
@@ -11,15 +11,7 @@ var pool =
     database: "todo"
   });
 
-// Expose a method to establish connection with MariaDB SkySQL
-module.exports={
-  getConnection: function(){
-    return new Promise(function(resolve,reject){
-      pool.getConnection().then(function(connection){
-        resolve(connection);
-      }).catch(function(error){
-        reject(error);
-      });
-    });
-  }
-}
+// Expose the Pool object within this module
+module.exports = Object.freeze({
+  pool: pool
+});
