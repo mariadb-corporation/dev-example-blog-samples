@@ -6,7 +6,7 @@ from department import Department
 from employee import Employee
 from project import Project
 from asset import Asset
-
+from model import Model
 
 # Generate database schema
 Base.metadata.create_all(engine)

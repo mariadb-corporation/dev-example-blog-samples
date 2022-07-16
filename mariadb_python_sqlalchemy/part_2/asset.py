@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 
 from base import Base
 
+
 # Tabelle für die Basis Assets in der Datenbank
 class Asset(Base):
     __tablename__ = 'Assets'
