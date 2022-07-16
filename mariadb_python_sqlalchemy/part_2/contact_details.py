@@ -1,7 +1,8 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 
 from base import Base
+
 
 class ContactDetails(Base):
     __tablename__ = 'contact_details'
