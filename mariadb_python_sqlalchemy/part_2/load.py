@@ -7,6 +7,8 @@ from employee import Employee
 from project import Project
 from asset import Asset
 from model import Model
+from assettyp import AssetTyp
+
 
 # Generate database schema
 Base.metadata.create_all(engine)

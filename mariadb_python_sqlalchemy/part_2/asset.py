@@ -6,7 +6,7 @@ from base import Base
 
 # Tabelle für die Basis Assets in der Datenbank
 class Asset(Base):
-    __tablename__ = 'Assets'
+    __tablename__ = 'assets'
 
     id_asset = Column(Integer, primary_key=True)
     model_id = Column(Integer)
