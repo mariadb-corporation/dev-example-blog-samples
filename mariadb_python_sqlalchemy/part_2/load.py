@@ -5,7 +5,9 @@ from contact_details import ContactDetails
 from department import Department
 from employee import Employee
 from project import Project
-
+from dbschema import Asset
+from dbschema import Model
+from dbschema import AssetTyp
 
 # Generate database schema
 Base.metadata.create_all(engine)
@@ -43,8 +45,6 @@ cd_sun = ContactDetails("913-315-2536", "127 S Main ST", emp_sun)
 
 
 # Persist data
-session.add(assettyp1)
-session.add(assettyp2)
 session.add(project_1)
 session.add(project_2)
 session.add(project_3)
