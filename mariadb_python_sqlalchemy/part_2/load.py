@@ -5,9 +5,6 @@ from contact_details import ContactDetails
 from department import Department
 from employee import Employee
 from project import Project
-from asset import Asset
-from model import Model
-from assettyp import AssetTyp
 
 
 # Generate database schema
@@ -15,10 +12,6 @@ Base.metadata.create_all(engine)
 
 # Create a new session
 session = Session()
-
-# Asset Typen erstellen
-assettyp1 = AssetTyp(name='Computer')
-assettyp2 = AssetTyp(name='Laptop')
 
 # Create projects
 project_1 = Project("Project 1", "Project 1 description", date(2021, 5, 31))
