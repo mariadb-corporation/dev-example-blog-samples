@@ -16,6 +16,10 @@ Base.metadata.create_all(engine)
 # Create a new session
 session = Session()
 
+# Asset Typen erstellen
+assettyp1 = AssetTyp(name='Computer')
+assettyp2 = AssetTyp(name='Laptop')
+
 # Create projects
 project_1 = Project("Project 1", "Project 1 description", date(2021, 5, 31))
 project_2 = Project("Project 2", "Project 2 description", date(2021, 4, 30))
@@ -46,6 +50,8 @@ cd_sun = ContactDetails("913-315-2536", "127 S Main ST", emp_sun)
 
 
 # Persist data
+session.add(assettyp1)
+session.add(assettyp2)
 session.add(project_1)
 session.add(project_2)
 session.add(project_3)

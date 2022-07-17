@@ -8,6 +8,10 @@ class Model(Base):
     __tablename__ = 'models'
 
     id_model = Column(Integer, primary_key=True)
+    typ_id = Column(Integer, ForeignKey('asset_types.id'))
     bezeichnung = Column(String(length=50))
-    typ_id = Column(Integer)
+
+    def __int__(self, bezeichnung, typ):
+        self.bezeichnung
+        self.typ
 

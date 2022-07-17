@@ -7,6 +7,6 @@ from base import Base
 class AssetTyp(Base):
     __tablename__ = 'asset_types'
 
-    id_Typ = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(length=50))
 
