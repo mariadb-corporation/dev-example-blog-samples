@@ -9,6 +9,8 @@ class Asset(Base):
 
     id = Column(Integer, primary_key=True)
     model_id = Column(Integer, ForeignKey('models.id'))
+    model = relationship("Model")
+
 
 
 class Model(Base):
@@ -26,3 +28,12 @@ class AssetTyp(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(length=100))
     models = relationship("Model")
+
+
+class Computer(Base):
+    __tablename__ = 'computer'
+
+    id = Column(Integer, primary_key=True)
+    id_asset = Column(Integer, ForeignKey('assets.id'))
+    pcname = Column(String(length=50))
+    assets = relationship("Asset")
