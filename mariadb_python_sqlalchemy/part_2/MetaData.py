@@ -8,6 +8,7 @@ class FileData(Base):
     id = Column(Integer, primary_key=True)
     filename = Column(String(length=60))
     path = Column(String(length=254))
+    fullname = Column(String(length=254))
 
 
 class ExifData(Base):
