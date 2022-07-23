@@ -10,6 +10,11 @@ class FileData(Base):
     path = Column(String(length=254))
     fullname = Column(String(length=254))
 
+    def __int__(self, filename, path, fullname):
+        self.filename = filename
+        self.path = path
+        self.fullname = fullname
+
 
 class ExifData(Base):
     __tablename__ = 'exifdata'
@@ -17,7 +22,8 @@ class ExifData(Base):
     id = Column(Integer, primary_key=True)
     file_id = Column(Integer, ForeignKey('filedata.id'))
     file = relationship("FileData")
+    typ = Column(String(length=10))
     key = Column(String(length=60))
-    keydata = Column(String(length=500))
+    keydata = Column(String(length=2000))
 
 

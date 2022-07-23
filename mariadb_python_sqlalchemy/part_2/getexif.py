@@ -18,9 +18,10 @@ paths = []
 
 session.commit()
 
-fdata = FileData()
+# fdata = FileData()
 
 for file in os.listdir(path):
+    fdata = FileData()
     if os.path.isdir(path + '\\' + file):
         paths.append(path + file)
     else:
@@ -36,9 +37,22 @@ for file in os.listdir(path):
                             fdata.path = v
                         elif k == 'SourceFile':
                             fdata.fullname = v
+            except:
+                print('Fehler')
+
+            try:
+                for t in et.get_tags(sfile, tags=['EXIF:*', 'XMP:*']):
+                    for k, v in t.items():
+                        test: list = k.split(':')
+                        if len(test) == 2:
+                            tdata = ExifData(key=test[1], keydata=str(v), file=fdata, typ=test[0])
+                            session.add(tdata)
+                            session.commit()
 
             except:
                 print('Fehler')
 
+    session.add(fdata)
+    session.commit()
 
 session.close()
