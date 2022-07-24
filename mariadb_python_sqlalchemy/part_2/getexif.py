@@ -48,7 +48,6 @@ for file in os.listdir(path):
                             tdata = ExifData(key=test[1], keydata=str(v), file=fdata, typ=test[0])
                             session.add(tdata)
                             session.commit()
-
             except:
                 print('Fehler')
 
