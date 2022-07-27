@@ -18,7 +18,7 @@ session.commit()
 
 def addMetaData(filename):
     with ExifToolHelper(encoding='utf-8') as et:
-        for t in et.get_tags(filename, ['EXIF:*', 'XMP:*']):
+        for t in et.get_tags(filename, ['EXIF:*', 'XMP:*', 'IPTC:*']):
             counters = len(t.items())
             for k, v in t.items():
                 test: list = k.split(':')
