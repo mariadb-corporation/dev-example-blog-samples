@@ -22,8 +22,14 @@ class ExifData(Base):
     id = Column(Integer, primary_key=True)
     file_id = Column(Integer, ForeignKey('filedata.id'))
     file = relationship("FileData")
-    typ = Column(String(length=10))
-    key = Column(String(length=60))
+    tag_id = Column(Integer, ForeignKey('exiftags.id'))
+    tag = relationship("ExifTags")
     keydata = Column(String(length=2000))
 
 
+class ExifTags(Base):
+    __tablename__ = 'exiftags'
+
+    id = Column(Integer, primary_key=True)
+    tagtyp = Column(String(length=10))
+    key = Column(String(length=40))
