@@ -1,10 +1,13 @@
 from datetime import date
 
 from base import Session, engine, Base
-from employee import Employee
-from project import Project 
-from department import Department
 from contact_details import ContactDetails
+from department import Department
+from employee import Employee
+from project import Project
+from dbschema import Asset
+from dbschema import Model
+from dbschema import AssetTyp
 
 # Generate database schema
 Base.metadata.create_all(engine)

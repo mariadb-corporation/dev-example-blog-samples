@@ -1,8 +1,7 @@
 from base import Session
-from project import Project
-from employee import Employee
 from department import Department
-from contact_details import ContactDetails
+from employee import Employee
+from project import Project
 
 session = Session()
 
